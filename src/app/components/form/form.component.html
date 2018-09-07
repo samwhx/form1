@@ -7,7 +7,7 @@
 
   <!-- email -->
   <mat-form-field>
-    <input id="email" class="form-control" matInput placeholder="Email" formControlName="email" required>
+    <input id="email" matInput placeholder="Email" formControlName="email" required>
   </mat-form-field>
   <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
     <div *ngIf="email.errors.required">
