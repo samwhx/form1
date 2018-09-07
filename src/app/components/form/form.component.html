@@ -1,0 +1,123 @@
+<!-- toolbar -->
+<mat-toolbar color="primary">Contact Information</mat-toolbar>
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate fxLayout="column" fxLayoutAlign="center start" style="margin: 2em;">
+
+  <!-- email -->
+  <mat-form-field>
+    <input id="email" class="form-control" matInput placeholder="Email" formControlName="email" required>
+  </mat-form-field>
+  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+    <div *ngIf="email.errors.required">
+      Email is required.
+    </div>
+    <div *ngIf="email.errors.email">
+      Email entered must be a valid email address.
+    </div>
+  </div>
+
+  <!-- password -->
+  <mat-form-field>
+    <input id="password" matInput placeholder="Password" formControlName="password" required>
+  </mat-form-field>
+  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+    <div *ngIf="password.errors.required">
+      Password is required.
+    </div>
+    <div *ngIf="password.errors.pattern">
+      Password must adhere to the following strong password policies: <br>
+      i. have at least 8 characters. <br>
+      ii. use both uppercase and lowercase letters (case sensitivity). <br>
+      iii. include one or more numerical digits. <br>
+      iv. include one of these special characters.
+    </div>
+  </div>
+
+  <!-- name -->
+  <mat-form-field>
+    <input id="name" matInput placeholder="Name" formControlName="name" required>
+  </mat-form-field>
+  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+    <div *ngIf="name.errors.required">
+      Name is required.
+    </div>
+  </div>
+
+  <!-- gender -->
+  Gender *
+  <mat-radio-group id="gender" class="radio-group" formControlName="gender" fxLayout="row" required>
+    <mat-radio-button class="radio-button" *ngFor="let gender of genders" [value]="gender">
+      {{gender}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert">
+    <div *ngIf="gender.errors.required">
+      Gender is required.
+    </div>
+  </div>
+
+  <!-- date -->
+  <mat-form-field>
+    <input id="dob" matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dob" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div *ngIf="dob.invalid && (dob.dirty || dob.touched)" class="alert">
+    <div *ngIf="dob.errors.required">
+      Date of Birth is required.
+    </div>
+    <div *ngIf="dob.errors.validDate">
+      You must must be at least 18 years old!
+    </div>
+  </div>
+
+  <!-- address -->
+  <mat-form-field>
+    <input id="address" matInput placeholder="Address" formControlName="address" required>
+  </mat-form-field>
+  <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert">
+    <div *ngIf="address.errors.required">
+      Address is required.
+    </div>
+  </div>
+
+  <!-- country -->
+  <mat-form-field>
+    <mat-select id="country" placeholder="Country" formControlName="country" required>
+      <mat-option *ngFor="let country of countries" [value]="country">
+          {{country}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="country.invalid && (country.dirty || country.touched)" class="alert">
+    <div *ngIf="country.errors.required">
+      Country is required.
+    </div>
+  </div>
+
+  <!-- contact number -->
+  <mat-form-field>
+    <input id="contact" matInput placeholder="Contact Number" formControlName="contact" required>
+  </mat-form-field>
+  <div *ngIf="contact.invalid && (contact.dirty || contact.touched)" class="alert">
+    <div *ngIf="contact.errors.required">
+      Contact Number is required.
+    </div>
+    <div *ngIf="contact.errors.pattern">
+        Contact number should not contain invalid characters <br>
+        (+, -, space, and round brackets are allowed, as they are used for area code and extensions)
+    </div>
+  </div>
+
+  <!-- further information (not mandatory) -->
+  <mat-form-field>
+    <input id="text" matInput placeholder="Additional Information" formControlName="text">
+  </mat-form-field>
+
+  <!-- Submit and Reset buttons -->
+  <div fxLayout="row">
+    <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.pristine || contactForm.status == 'INVALID'">Save</button>
+    <button mat-raised-button color="primary" type="reset" (click)="reset()" [disabled]="contactForm.pristine" style="margin-left: 1em;">Reset</button>
+  </div>
+</form>
+
