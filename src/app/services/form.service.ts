@@ -10,6 +10,6 @@ export class FormService {
   constructor(private http: HttpClient) { }
 
   submitForm(data){
-    return this.http.post(`${environment.api_url}form`, data);
+    return this.http.post(`${environment.api_url}submitted`, data);
   }
 }

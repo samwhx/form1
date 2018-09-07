@@ -51,5 +51,17 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "^2.9.2"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://samwhx@github.com/samwhx/form1.git"
+  },
+  "author": "Samuel Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samwhx/form1/issues"
+  },
+  "homepage": "https://github.com/samwhx/form1#readme"
 }

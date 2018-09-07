@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 console.log(__dirname + "/../dist/form1");
 app.use(express.static(__dirname + "/../dist/form1"))
 
-app.get("/form", (req,res)=>{
+app.post("/submitted", (req,res)=>{
     console.log(req.body);
     res.json(req.body);
 })
