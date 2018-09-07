@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; //router
 
 @Component({
   selector: 'app-submitted',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmittedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
+
+  //back button
+  goBack(){
+    this.route.navigate(['/form']);
+  }
 
   ngOnInit() {
   }
